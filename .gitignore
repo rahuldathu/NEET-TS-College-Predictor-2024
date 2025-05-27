@@ -1,0 +1,9 @@
+dropped_rows_special_cat.txt
+dropped_rows.txt
+column_mismatch_rows.txt
+skipped_rows.txt
+prac.py
+prac2.py
+app_cp.py
+credentials.json
+gcp_service_account.txt
