@@ -97,7 +97,7 @@ if predict:
             "College", "Candidate Category", "Min_Rank", "Max_Rank", "Count", "Percentile_40th", "Probable_Round"
         ]].rename(columns={
             "Min_Rank": "Min_Rank",
-            "Max_Rank": "Max _ank",
+            "Max_Rank": "Max_Rank",
             "Count": "no of Students allotted",
             "Percentile_40th": "40th Percentile Rank",
             "Probable_Round": "Round"
