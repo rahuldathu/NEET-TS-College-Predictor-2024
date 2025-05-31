@@ -67,16 +67,18 @@ with center:
     default_gender = "GEN" if "GEN" in gender_options else gender_options[0]
     default_entry = "GEN" if "GEN" in entry_options else entry_options[0]
 
+    rank = st.number_input("Your NEET Rank", min_value=1, step=1, key="rank_input")
     candidate_category = st.selectbox("Candidate Category", category_options, index=category_options.index(default_category), key="cat")
     gender = st.selectbox("Gender", gender_options, index=gender_options.index(default_gender), key="gen")
     entry_channel = st.selectbox("Entry Channel", entry_options, index=entry_options.index(default_entry), key="ent")
-    rank = st.number_input("Your NEET Rank", min_value=1, step=1, key="rank_input")
+    # rank = st.number_input("Your NEET Rank", min_value=1, step=1, key="rank_input")
 
     # ✅ The one and only working, aligned button
     predict = st.button("🔍 Predict Possible Colleges")
 
 # Trigger prediction logic only when the button is pressed
 if predict:
+    log_to_gsheet(rank, candidate_category, gender, entry_channel)
     # Filter dataset based on inputs
     filtered_df = df[
         (df["Candidate Category"] == candidate_category) &
@@ -106,8 +108,8 @@ if predict:
         st.dataframe(display_df.iloc[:, :].reset_index(drop=True), use_container_width=True)
 
     # Log to Google Sheets
-    try:
-        log_to_gsheet(rank, candidate_category, gender, entry_channel)
-        st.success("✅ Your query was logged successfully.")
-    except Exception as e:
-        st.error(f"❌ Failed to log query: {e}")
+    # try:
+    #     log_to_gsheet(rank, candidate_category, gender, entry_channel)
+    #     st.success("✅ Your query was logged successfully.")
+    # except Exception as e:
+    #     st.error(f"❌ Failed to log query: {e}")
