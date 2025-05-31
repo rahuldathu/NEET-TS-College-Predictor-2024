@@ -90,7 +90,7 @@ if predict:
     filtered_df = filtered_df.sort_values("Percentile_40th", ascending=True)
     filtered_df["College"] = filtered_df["College"].str.replace(r"^\d+\.\s*", "", regex=True)
 
-    st.markdown(f"### 🎯 Matching Colleges for Rank **{rank}**")
+    st.markdown(f"### 🎯 Matching Colleges for Rank : **{rank}**")
 
     if filtered_df.empty:
         st.warning("No matching colleges found for the selected criteria.")
